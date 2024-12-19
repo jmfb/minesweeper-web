@@ -1,53 +1,53 @@
 {
-  "name": "minesweeper-web",
-  "version": "0.0.0",
-  "private": true,
-  "type": "module",
-  "scripts": {
-    "start": "vite --mode localmachine",
-    "build": "vite build --mode localmachine",
-    "build-prod": "vite build --mode prod",
-    "typescript": "tsc --watch --noEmit",
-    "typescript-ci": "tsc --noEmit",
-    "prettier-ci": "prettier --check .",
-    "prettier-write": "prettier --write .",
-    "lint-ci": "eslint './Scripts/Source/**/*.{js,jsx,ts,tsx}'"
-  },
-  "engines": {
-    "node": "22.12.0"
-  },
-  "dependencies": {
-    "@reduxjs/toolkit": "^1.6.1",
-    "caniuse-lite": "^1.0.30001653",
-    "path-browserify": "^1.0.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-redux": "^9.1.1",
-    "react-router-dom": "^6.3.0",
-    "redux": "^4.0.5",
-    "redux-thunk": "^3.1.0"
-  },
-  "devDependencies": {
-    "@eslint/js": "^9.10.0",
-    "@types/caniuse-lite": "^1.0.5",
-    "@types/node": "^8.0.19",
-    "@types/react": "^18.2.79",
-    "@types/react-dom": "^18.2.25",
-    "@types/react-redux": "^7.1.33",
-    "@types/react-router-dom": "^5.3.3",
-    "@typescript-eslint/eslint-plugin": "^8.5.0",
-    "@typescript-eslint/parser": "^8.5.0",
-    "@vitejs/plugin-react": "^4.3.1",
-    "eslint": "^9.10.0",
-    "eslint-config-prettier": "^9.1.0",
-    "prettier": "^3.3.3",
-    "terser": "^5.32.0",
-    "ts-node": "^10.9.2",
-    "typescript": "5.5.4",
-    "typescript-eslint": "^8.5.0",
-    "typescript-language-server": "^4.3.3",
-    "vite": "^5.4.5",
-    "vite-tsconfig-paths": "^5.0.1"
-  },
-  "packageManager": "yarn@4.4.1"
+	"name": "minesweeper-web",
+	"version": "0.0.0",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"start": "vite --mode localmachine",
+		"build": "vite build --mode localmachine",
+		"build-prod": "vite build --mode prod",
+		"typescript": "tsc --watch --noEmit",
+		"typescript-ci": "tsc --noEmit",
+		"prettier-ci": "prettier --check .",
+		"prettier-write": "prettier --write .",
+		"lint-ci": "eslint './Scripts/Source/**/*.{js,jsx,ts,tsx}'"
+	},
+	"engines": {
+		"node": "22.12.0"
+	},
+	"dependencies": {
+		"@reduxjs/toolkit": "^1.6.1",
+		"caniuse-lite": "^1.0.30001653",
+		"path-browserify": "^1.0.1",
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0",
+		"react-redux": "^9.1.1",
+		"react-router-dom": "^6.3.0",
+		"redux": "^4.0.5",
+		"redux-thunk": "^3.1.0"
+	},
+	"devDependencies": {
+		"@eslint/js": "^9.10.0",
+		"@types/caniuse-lite": "^1.0.5",
+		"@types/node": "^8.0.19",
+		"@types/react": "^18.2.79",
+		"@types/react-dom": "^18.2.25",
+		"@types/react-redux": "^7.1.33",
+		"@types/react-router-dom": "^5.3.3",
+		"@typescript-eslint/eslint-plugin": "^8.5.0",
+		"@typescript-eslint/parser": "^8.5.0",
+		"@vitejs/plugin-react": "^4.3.1",
+		"eslint": "^9.10.0",
+		"eslint-config-prettier": "^9.1.0",
+		"prettier": "^3.3.3",
+		"terser": "^5.32.0",
+		"ts-node": "^10.9.2",
+		"typescript": "5.5.4",
+		"typescript-eslint": "^8.5.0",
+		"typescript-language-server": "^4.3.3",
+		"vite": "^5.4.5",
+		"vite-tsconfig-paths": "^5.0.1"
+	},
+	"packageManager": "yarn@4.4.1"
 }
