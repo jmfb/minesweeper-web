@@ -1,4 +1,5 @@
 import { createRoot } from "react-dom/client";
+import { Application } from "./Application";
 
 function start() {
 	const rootContainer = document.getElementById("root");
@@ -6,7 +7,7 @@ function start() {
 		throw new Error("Root element not found");
 	}
 	const root = createRoot(rootContainer);
-	const rootElement = <div>Hello World</div>;
+	const rootElement = <Application />;
 	root.render(rootElement);
 }
 
