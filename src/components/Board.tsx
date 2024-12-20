@@ -50,7 +50,7 @@ export function Board({
 						<Square
 							key={column}
 							square={square}
-							isPressed={gameService.showPressed(
+							isPressed={mouseService.showPressed(
 								buttons,
 								cursor,
 								row,

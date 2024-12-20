@@ -53,3 +53,21 @@ export function isAdjacent(cursor: Cursor, row: number, column: number) {
 		cursor.column <= toCol
 	);
 }
+
+export function showPressed(
+	buttons: MouseButtons,
+	cursor: Cursor,
+	row: number,
+	column: number,
+) {
+	if (cursor === null) {
+		return false;
+	}
+	if (buttons === "none" || buttons === "right") {
+		return false;
+	}
+	if (isCursor(cursor, row, column)) {
+		return true;
+	}
+	return buttons === "both" && isAdjacent(cursor, row, column);
+}

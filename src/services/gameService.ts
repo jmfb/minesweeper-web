@@ -5,6 +5,7 @@ import {
 	BoardState,
 	Cursor,
 	MouseButtons,
+	GameStatus,
 } from "~/models";
 import { mouseService } from ".";
 
@@ -148,20 +149,41 @@ export function countAdjacentBombs(
 	return getAdjacentStatus(state, row, column).bombs;
 }
 
-export function showPressed(
-	buttons: MouseButtons,
-	cursor: Cursor,
-	row: number,
-	column: number,
-) {
-	if (cursor === null) {
-		return false;
+export function getGameStatus(state: BoardState): GameStatus {
+	const squares = state.flatMap((squares) => squares);
+	if (squares.some((square) => square.status === "exploded")) {
+		return "lose";
 	}
-	if (buttons === "none" || buttons === "right") {
-		return false;
+	if (
+		squares.some((square) => !square.isBomb && square.status !== "cleared")
+	) {
+		return "in-progress";
 	}
-	if (mouseService.isCursor(cursor, row, column)) {
-		return true;
+	return "win";
+}
+
+export function winGame(state: BoardState) {
+	const clone = cloneBoard(state);
+	for (const squares of clone) {
+		for (const square of squares) {
+			if (square.isBomb && square.status !== "flagged") {
+				square.status = "cleared";
+			}
+		}
 	}
-	return buttons === "both" && mouseService.isAdjacent(cursor, row, column);
+	return clone;
+}
+
+export function loseGame(state: BoardState) {
+	const clone = cloneBoard(state);
+	for (const squares of clone) {
+		for (const square of squares) {
+			if (!square.isBomb && square.status === "flagged") {
+				square.status = "mistake";
+			} else if (square.isBomb && square.status === "hidden") {
+				square.status = "cleared";
+			}
+		}
+	}
+	return clone;
 }

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { Board } from "./Board";
 import { BoardState, Cursor, MouseButtons } from "~/models";
 import { gameService, mouseService } from "~/services";
@@ -12,9 +12,28 @@ export function Application() {
 	const [isEmpty, setIsEmpty] = useState(true);
 	const [cursor, setCursor] = useState<Cursor | null>(null);
 
+	const gameStatus = useMemo(() => gameService.getGameStatus(state), [state]);
+	const isGameOver = gameStatus !== "in-progress";
+
+	useEffect(() => {
+		switch (gameStatus) {
+			case "win":
+				setState(gameService.winGame(state));
+				console.log("win");
+				break;
+			case "lose":
+				setState(gameService.loseGame(state));
+				console.log("lose");
+				break;
+		}
+	}, [gameStatus]);
+
 	const handleButtonsChanged = (newButtons: MouseButtons) => {
-		const gameEvent = mouseService.getMouseGameEvent(buttons, newButtons);
 		setButtons(newButtons);
+		if (isGameOver) {
+			return;
+		}
+		const gameEvent = mouseService.getMouseGameEvent(buttons, newButtons);
 		switch (gameEvent) {
 			case "click":
 				if (isEmpty) {
@@ -50,7 +69,7 @@ export function Application() {
 		<div className={styles["root"]}>
 			<Board
 				state={state}
-				buttons={buttons}
+				buttons={isGameOver ? "none" : buttons}
 				cursor={cursor}
 				onButtonsChanged={handleButtonsChanged}
 				onCursorChanged={handleCursorChanged}

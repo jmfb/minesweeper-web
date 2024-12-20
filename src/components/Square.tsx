@@ -11,7 +11,7 @@ export interface SquareProps {
 }
 
 export function Square({
-	square: { status },
+	square: { isBomb, status },
 	isPressed,
 	adjacentBombs,
 	onMouseEnter,
@@ -29,6 +29,8 @@ export function Square({
 			{status === "flagged" ? (
 				"🚩"
 			) : status === "mistake" ? (
+				"❌"
+			) : status === "cleared" && isBomb ? (
 				"💣"
 			) : status === "exploded" ? (
 				"💥"
