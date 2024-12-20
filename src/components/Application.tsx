@@ -12,10 +12,6 @@ export function Application() {
 	const [isEmpty, setIsEmpty] = useState(true);
 	const [cursor, setCursor] = useState<Cursor | null>(null);
 
-	void setState;
-	void isEmpty;
-	void setIsEmpty;
-
 	const handleButtonsChanged = (newButtons: MouseButtons) => {
 		const gameEvent = mouseService.getMouseGameEvent(buttons, newButtons);
 		setButtons(newButtons);
@@ -29,7 +25,7 @@ export function Application() {
 				}
 				break;
 			case "mark":
-				console.log("TODO: mark");
+				setState(gameService.changeMark(state, cursor));
 				break;
 			case "chord":
 				console.log("TODO: chord");

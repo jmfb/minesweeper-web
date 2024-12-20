@@ -11,12 +11,14 @@
 	font-family: "inter";
 }
 
-.hidden {
+.status-hidden,
+.status-flagged,
+.status-mistake {
 	background-color: lightgray;
 	border: 2px outset;
 }
 
-.hidden.pressed {
+.status-hidden.pressed {
 	border: 2px inset;
 }
 

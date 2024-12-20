@@ -72,6 +72,16 @@ export function clickSquare(state: BoardState, { row, column }: Cursor) {
 	}
 }
 
+export function changeMark(state: BoardState, { row, column }: Cursor) {
+	const { status } = state[row][column];
+	if (status !== "hidden" && status !== "flagged") {
+		return state;
+	}
+	const clone = cloneBoard(state);
+	clone[row][column].status = status === "hidden" ? "flagged" : "hidden";
+	return clone;
+}
+
 export function countAdjacentBombs(
 	state: BoardState,
 	row: number,

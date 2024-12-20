@@ -16,12 +16,11 @@ export function Square({
 	adjacentBombs,
 	onMouseEnter,
 }: SquareProps) {
-	const isHidden = status === "hidden";
 	return (
 		<div
 			className={clsx(
 				styles["root"],
-				isHidden && styles["hidden"],
+				styles[`status-${status}`],
 				isPressed && styles["pressed"],
 				adjacentBombs > 0 && styles[`count-${adjacentBombs}`],
 			)}
