@@ -9,3 +9,7 @@ export interface SquareState {
 	isBomb: boolean;
 	status: SquareStatus;
 }
+
+export type MouseButtons = "none" | "left" | "right" | "both";
+
+export type MouseGameEvent = "click" | "mark" | "chord";
