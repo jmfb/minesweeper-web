@@ -21,7 +21,7 @@ export function Application() {
 					setIsEmpty(false);
 					setState(gameService.generateBoard(state, cursor));
 				} else {
-					console.log("TODO: click");
+					setState(gameService.doClick(state, cursor));
 				}
 				break;
 			case "mark":

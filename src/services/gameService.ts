@@ -45,6 +45,16 @@ export function generateBoard(state: BoardState, cursor: Cursor): BoardState {
 	return clone;
 }
 
+export function doClick(state: BoardState, cursor: Cursor) {
+	const { row, column } = cursor;
+	if (state[row][column].status !== "hidden") {
+		return state;
+	}
+	const clone = cloneBoard(state);
+	clickSquare(clone, cursor);
+	return clone;
+}
+
 export function clickSquare(state: BoardState, { row, column }: Cursor) {
 	const { isBomb, status } = state[row][column];
 	if (status !== "hidden") {
