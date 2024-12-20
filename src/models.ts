@@ -23,3 +23,4 @@ export interface Cursor {
 
 export const boardHeight = 16;
 export const boardWidth = 30;
+export const bombCount = 99;

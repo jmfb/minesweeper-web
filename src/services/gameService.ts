@@ -1,6 +1,7 @@
 import {
 	boardHeight,
 	boardWidth,
+	bombCount,
 	BoardState,
 	Cursor,
 	MouseButtons,
@@ -15,6 +16,60 @@ export function createEmptyBoard() {
 				.fill(0)
 				.map(() => ({ isBomb: false, status: "hidden" as const })),
 		);
+}
+
+export function cloneBoard(state: BoardState): BoardState {
+	return state.map((squares) => squares.map((square) => ({ ...square })));
+}
+
+export function generateBomb(state: BoardState, cursor: Cursor) {
+	while (true) {
+		const { row, column } = mouseService.randomCursor();
+		if (mouseService.isAdjacent(cursor, row, column)) {
+			continue;
+		}
+		if (state[row][column].isBomb) {
+			continue;
+		}
+		state[row][column].isBomb = true;
+		return;
+	}
+}
+
+export function generateBoard(state: BoardState, cursor: Cursor): BoardState {
+	const clone = cloneBoard(state);
+	for (let index = 0; index < bombCount; ++index) {
+		generateBomb(clone, cursor);
+	}
+	clickSquare(clone, cursor);
+	return clone;
+}
+
+export function clickSquare(state: BoardState, { row, column }: Cursor) {
+	const { isBomb, status } = state[row][column];
+	if (status !== "hidden") {
+		return;
+	}
+	if (isBomb) {
+		state[row][column].status = "exploded";
+		return;
+	}
+	state[row][column].status = "cleared";
+	const count = countAdjacentBombs(state, row, column);
+	if (count === 0) {
+		const fromRow = Math.max(0, row - 1);
+		const toRow = Math.min(boardHeight - 1, row + 1);
+		const fromCol = Math.max(0, column - 1);
+		const toCol = Math.min(boardWidth - 1, column + 1);
+		for (let otherRow = fromRow; otherRow <= toRow; otherRow++) {
+			for (let otherCol = fromCol; otherCol <= toCol; otherCol++) {
+				const isSameSquare = otherRow === row && otherCol === column;
+				if (!isSameSquare) {
+					clickSquare(state, { row: otherRow, column: otherCol });
+				}
+			}
+		}
+	}
 }
 
 export function countAdjacentBombs(

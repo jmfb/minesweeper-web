@@ -31,6 +31,12 @@ export function getMouseGameEvent(
 	return null;
 }
 
+export function randomCursor() {
+	const row = Math.floor(Math.random() * boardHeight);
+	const column = Math.floor(Math.random() * boardWidth);
+	return { row, column };
+}
+
 export function isCursor(cursor: Cursor, row: number, column: number) {
 	return cursor.row === row && cursor.column === column;
 }

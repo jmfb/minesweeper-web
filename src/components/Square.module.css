@@ -1,6 +1,14 @@
 .root {
 	width: 20px;
 	height: 20px;
+	background-color: whitesmoke;
+	border: 2px outset transparent;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	font-weight: bold;
+	font-family: "inter";
 }
 
 .hidden {
@@ -10,4 +18,36 @@
 
 .hidden.pressed {
 	border: 2px inset;
+}
+
+.count-1 {
+	color: blue;
+}
+
+.count-2 {
+	color: green;
+}
+
+.count-3 {
+	color: red;
+}
+
+.count-4 {
+	color: purple;
+}
+
+.count-5 {
+	color: maroon;
+}
+
+.count-6 {
+	color: teal;
+}
+
+.count-7 {
+	color: magenta;
+}
+
+.count-8 {
+	color: black;
 }
