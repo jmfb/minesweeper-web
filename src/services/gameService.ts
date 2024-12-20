@@ -187,3 +187,12 @@ export function loseGame(state: BoardState) {
 	}
 	return clone;
 }
+
+export function getFlagCount(state: BoardState) {
+	return state
+		.flatMap((squares) => squares)
+		.reduce(
+			(count, square) => count + (square.status === "flagged" ? 1 : 0),
+			0,
+		);
+}

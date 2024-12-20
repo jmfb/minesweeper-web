@@ -1,5 +1,6 @@
 import { useState, useMemo, useEffect } from "react";
 import { Board } from "./Board";
+import { Monitor } from "./Monitor";
 import { BoardState, Cursor, MouseButtons } from "~/models";
 import { gameService, mouseService } from "~/services";
 import styles from "./Application.module.css";
@@ -67,6 +68,10 @@ export function Application() {
 
 	return (
 		<div className={styles["root"]}>
+			<Monitor
+				gameStatus={gameStatus}
+				flagCount={gameService.getFlagCount(state)}
+			/>
 			<Board
 				state={state}
 				buttons={isGameOver ? "none" : buttons}
