@@ -1,5 +1,11 @@
 import { MouseEvent } from "react";
-import { MouseButtons, MouseGameEvent } from "~/models";
+import {
+	boardHeight,
+	boardWidth,
+	Cursor,
+	MouseButtons,
+	MouseGameEvent,
+} from "~/models";
 
 export function mapMouseButtons({
 	buttons,
@@ -23,4 +29,21 @@ export function getMouseGameEvent(
 		return "click";
 	}
 	return null;
+}
+
+export function isCursor(cursor: Cursor, row: number, column: number) {
+	return cursor.row === row && cursor.column === column;
+}
+
+export function isAdjacent(cursor: Cursor, row: number, column: number) {
+	const fromRow = Math.max(0, row - 1);
+	const toRow = Math.min(boardHeight - 1, row + 1);
+	const fromCol = Math.max(0, column - 1);
+	const toCol = Math.min(boardWidth - 1, column + 1);
+	return (
+		cursor.row >= fromRow &&
+		cursor.row <= toRow &&
+		cursor.column >= fromCol &&
+		cursor.column <= toCol
+	);
 }

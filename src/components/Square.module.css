@@ -1,0 +1,13 @@
+.root {
+	width: 20px;
+	height: 20px;
+}
+
+.hidden {
+	background-color: lightgray;
+	border: 2px outset;
+}
+
+.hidden.pressed {
+	border: 2px inset;
+}

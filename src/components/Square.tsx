@@ -1,39 +1,38 @@
 import { MouseEvent } from "react";
-import { SquareState, MouseButtons } from "~/models";
-import { mouseService } from "~/services";
+import { SquareState } from "~/models";
+import { clsx } from "clsx";
+import styles from "./Square.module.css";
 
 export interface SquareProps {
 	square: SquareState;
-	buttons: MouseButtons;
-	onMouseDown(newButtons: MouseButtons): void;
-	onMouseUp(newButtons: MouseButtons): void;
+	isPressed: boolean;
+	adjacentBombs: number;
+	onMouseEnter(event: MouseEvent<HTMLDivElement>): void;
 }
 
 export function Square({
 	square: { isBomb, status },
-	buttons,
-	onMouseDown,
-	onMouseUp,
+	isPressed,
+	adjacentBombs,
+	onMouseEnter,
 }: SquareProps) {
-	void buttons;
-
-	const handleMouseDown = (event: MouseEvent<HTMLDivElement>) => {
-		onMouseDown(mouseService.mapMouseButtons(event));
-	};
-	const handleMouseUp = (event: MouseEvent<HTMLDivElement>) => {
-		onMouseUp(mouseService.mapMouseButtons(event));
-	};
-	const handleContextMenu = (event: MouseEvent<HTMLDivElement>) => {
-		event.preventDefault();
-	};
-
+	const isHidden = status === "hidden";
 	return (
 		<div
-			onMouseDown={handleMouseDown}
-			onMouseUp={handleMouseUp}
-			onContextMenu={handleContextMenu}
+			className={clsx(
+				styles["root"],
+				isHidden && styles["hidden"],
+				isPressed && styles["pressed"],
+			)}
+			onMouseEnter={onMouseEnter}
 		>
-			{isBomb ? "💣" : status === "hidden" ? "🟦" : "🟩"}
+			{!isHidden && isBomb ? (
+				"💣"
+			) : !isHidden && !isBomb && adjacentBombs > 0 ? (
+				adjacentBombs
+			) : (
+				<>&nbsp;</>
+			)}
 		</div>
 	);
 }

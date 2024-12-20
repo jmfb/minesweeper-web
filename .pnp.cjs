@@ -39,6 +39,7 @@ const RAW_RUNTIME_STATE =
           ["@typescript-eslint/parser", "virtual:ee10e5f3b3201f8063efa2a01b73998caaffddc2abbc3b84f927083546bad03a931378d6c5272841f3469d0368f8b188e481a7f5cc6c2b8c837000910f554b62#npm:8.18.1"],\
           ["@vitejs/plugin-react", "virtual:ee10e5f3b3201f8063efa2a01b73998caaffddc2abbc3b84f927083546bad03a931378d6c5272841f3469d0368f8b188e481a7f5cc6c2b8c837000910f554b62#npm:4.3.4"],\
           ["caniuse-lite", "npm:1.0.30001690"],\
+          ["clsx", "npm:2.1.1"],\
           ["eslint", "virtual:ee10e5f3b3201f8063efa2a01b73998caaffddc2abbc3b84f927083546bad03a931378d6c5272841f3469d0368f8b188e481a7f5cc6c2b8c837000910f554b62#npm:9.17.0"],\
           ["eslint-config-prettier", "virtual:ee10e5f3b3201f8063efa2a01b73998caaffddc2abbc3b84f927083546bad03a931378d6c5272841f3469d0368f8b188e481a7f5cc6c2b8c837000910f554b62#npm:9.1.0"],\
           ["path-browserify", "npm:1.0.1"],\
@@ -1762,6 +1763,15 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["clsx", [\
+      ["npm:2.1.1", {\
+        "packageLocation": "./.yarn/cache/clsx-npm-2.1.1-96125b98be-c4c8eb865f.zip/node_modules/clsx/",\
+        "packageDependencies": [\
+          ["clsx", "npm:2.1.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["color-convert", [\
       ["npm:2.0.1", {\
         "packageLocation": "./.yarn/cache/color-convert-npm-2.0.1-79730e935b-37e1150172.zip/node_modules/color-convert/",\
@@ -2752,6 +2762,7 @@ const RAW_RUNTIME_STATE =
           ["@typescript-eslint/parser", "virtual:ee10e5f3b3201f8063efa2a01b73998caaffddc2abbc3b84f927083546bad03a931378d6c5272841f3469d0368f8b188e481a7f5cc6c2b8c837000910f554b62#npm:8.18.1"],\
           ["@vitejs/plugin-react", "virtual:ee10e5f3b3201f8063efa2a01b73998caaffddc2abbc3b84f927083546bad03a931378d6c5272841f3469d0368f8b188e481a7f5cc6c2b8c837000910f554b62#npm:4.3.4"],\
           ["caniuse-lite", "npm:1.0.30001690"],\
+          ["clsx", "npm:2.1.1"],\
           ["eslint", "virtual:ee10e5f3b3201f8063efa2a01b73998caaffddc2abbc3b84f927083546bad03a931378d6c5272841f3469d0368f8b188e481a7f5cc6c2b8c837000910f554b62#npm:9.17.0"],\
           ["eslint-config-prettier", "virtual:ee10e5f3b3201f8063efa2a01b73998caaffddc2abbc3b84f927083546bad03a931378d6c5272841f3469d0368f8b188e481a7f5cc6c2b8c837000910f554b62#npm:9.1.0"],\
           ["path-browserify", "npm:1.0.1"],\
