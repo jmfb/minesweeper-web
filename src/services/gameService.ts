@@ -55,6 +55,22 @@ export function doClick(state: BoardState, cursor: Cursor) {
 	return clone;
 }
 
+export function doChord(state: BoardState, cursor: Cursor) {
+	const { row, column } = cursor;
+	if (state[row][column].status !== "cleared") {
+		return state;
+	}
+	const { bombs, flags, hidden } = getAdjacentStatus(state, row, column);
+	if (flags < bombs || hidden.length === 0) {
+		return state;
+	}
+	const clone = cloneBoard(state);
+	for (const target of hidden) {
+		clickSquare(clone, target);
+	}
+	return clone;
+}
+
 export function clickSquare(state: BoardState, { row, column }: Cursor) {
 	const { isBomb, status } = state[row][column];
 	if (status !== "hidden") {
@@ -92,12 +108,14 @@ export function changeMark(state: BoardState, { row, column }: Cursor) {
 	return clone;
 }
 
-export function countAdjacentBombs(
+export function getAdjacentStatus(
 	state: BoardState,
 	row: number,
 	column: number,
 ) {
-	let count = 0;
+	let bombs = 0;
+	let flags = 0;
+	const hidden: Cursor[] = [];
 	const fromRow = Math.max(0, row - 1);
 	const toRow = Math.min(boardHeight - 1, row + 1);
 	const fromCol = Math.max(0, column - 1);
@@ -105,12 +123,29 @@ export function countAdjacentBombs(
 	for (let otherRow = fromRow; otherRow <= toRow; otherRow++) {
 		for (let otherCol = fromCol; otherCol <= toCol; otherCol++) {
 			const isSameSquare = otherRow === row && otherCol === column;
-			if (!isSameSquare && state[otherRow][otherCol].isBomb) {
-				count++;
+			if (isSameSquare) {
+				continue;
+			}
+			const { isBomb, status } = state[otherRow][otherCol];
+			if (isBomb) {
+				++bombs;
+			}
+			if (status === "flagged") {
+				++flags;
+			} else if (status === "hidden") {
+				hidden.push({ row: otherRow, column: otherCol });
 			}
 		}
 	}
-	return count;
+	return { bombs, flags, hidden };
+}
+
+export function countAdjacentBombs(
+	state: BoardState,
+	row: number,
+	column: number,
+) {
+	return getAdjacentStatus(state, row, column).bombs;
 }
 
 export function showPressed(

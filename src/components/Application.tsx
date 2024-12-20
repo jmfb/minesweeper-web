@@ -28,7 +28,7 @@ export function Application() {
 				setState(gameService.changeMark(state, cursor));
 				break;
 			case "chord":
-				console.log("TODO: chord");
+				setState(gameService.doChord(state, cursor));
 				break;
 		}
 	};

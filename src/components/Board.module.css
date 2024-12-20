@@ -1,5 +1,6 @@
 .root {
 	user-select: none;
+	border: 2px inset;
 }
 
 .row {
