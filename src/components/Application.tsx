@@ -65,6 +65,10 @@ export function Application() {
 		setButtons("none");
 		setCursor(null);
 	};
+	const handleNewGameClicked = () => {
+		setState(gameService.createEmptyBoard());
+		setIsEmpty(true);
+	};
 
 	return (
 		<div className={styles["root"]}>
@@ -80,6 +84,7 @@ export function Application() {
 				onCursorChanged={handleCursorChanged}
 				onMouseLeave={handleMouseLeave}
 			/>
+			<button onClick={handleNewGameClicked}>New Game</button>
 		</div>
 	);
 }
