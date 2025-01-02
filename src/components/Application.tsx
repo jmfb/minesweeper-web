@@ -101,8 +101,10 @@ export function Application() {
 			<Monitor
 				gameStatus={gameStatus}
 				flagCount={gameService.getFlagCount(state)}
+				buttons={buttons}
 				startTime={startTime}
 				endTime={endTime ?? now}
+				onNewGame={handleNewGameClicked}
 			/>
 			<Board
 				state={state}
@@ -112,7 +114,6 @@ export function Application() {
 				onCursorChanged={handleCursorChanged}
 				onMouseLeave={handleMouseLeave}
 			/>
-			<button onClick={handleNewGameClicked}>New Game</button>
 		</div>
 	);
 }

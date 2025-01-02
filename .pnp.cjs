@@ -45,6 +45,7 @@ const RAW_RUNTIME_STATE =
           ["path-browserify", "npm:1.0.1"],\
           ["prettier", "npm:3.4.2"],\
           ["react", "npm:18.3.1"],\
+          ["react-7-segment-display", "virtual:ee10e5f3b3201f8063efa2a01b73998caaffddc2abbc3b84f927083546bad03a931378d6c5272841f3469d0368f8b188e481a7f5cc6c2b8c837000910f554b62#npm:1.1.2"],\
           ["react-dom", "virtual:ee10e5f3b3201f8063efa2a01b73998caaffddc2abbc3b84f927083546bad03a931378d6c5272841f3469d0368f8b188e481a7f5cc6c2b8c837000910f554b62#npm:18.3.1"],\
           ["react-redux", "virtual:ee10e5f3b3201f8063efa2a01b73998caaffddc2abbc3b84f927083546bad03a931378d6c5272841f3469d0368f8b188e481a7f5cc6c2b8c837000910f554b62#npm:9.2.0"],\
           ["react-router-dom", "virtual:ee10e5f3b3201f8063efa2a01b73998caaffddc2abbc3b84f927083546bad03a931378d6c5272841f3469d0368f8b188e481a7f5cc6c2b8c837000910f554b62#npm:6.28.0"],\
@@ -2768,6 +2769,7 @@ const RAW_RUNTIME_STATE =
           ["path-browserify", "npm:1.0.1"],\
           ["prettier", "npm:3.4.2"],\
           ["react", "npm:18.3.1"],\
+          ["react-7-segment-display", "virtual:ee10e5f3b3201f8063efa2a01b73998caaffddc2abbc3b84f927083546bad03a931378d6c5272841f3469d0368f8b188e481a7f5cc6c2b8c837000910f554b62#npm:1.1.2"],\
           ["react-dom", "virtual:ee10e5f3b3201f8063efa2a01b73998caaffddc2abbc3b84f927083546bad03a931378d6c5272841f3469d0368f8b188e481a7f5cc6c2b8c837000910f554b62#npm:18.3.1"],\
           ["react-redux", "virtual:ee10e5f3b3201f8063efa2a01b73998caaffddc2abbc3b84f927083546bad03a931378d6c5272841f3469d0368f8b188e481a7f5cc6c2b8c837000910f554b62#npm:9.2.0"],\
           ["react-router-dom", "virtual:ee10e5f3b3201f8063efa2a01b73998caaffddc2abbc3b84f927083546bad03a931378d6c5272841f3469d0368f8b188e481a7f5cc6c2b8c837000910f554b62#npm:6.28.0"],\
@@ -3159,6 +3161,33 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["react", "npm:18.3.1"],\
           ["loose-envify", "npm:1.4.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["react-7-segment-display", [\
+      ["npm:1.1.2", {\
+        "packageLocation": "./.yarn/cache/react-7-segment-display-npm-1.1.2-f7d4e7fefe-99c6a114f4.zip/node_modules/react-7-segment-display/",\
+        "packageDependencies": [\
+          ["react-7-segment-display", "npm:1.1.2"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:ee10e5f3b3201f8063efa2a01b73998caaffddc2abbc3b84f927083546bad03a931378d6c5272841f3469d0368f8b188e481a7f5cc6c2b8c837000910f554b62#npm:1.1.2", {\
+        "packageLocation": "./.yarn/__virtual__/react-7-segment-display-virtual-443723f459/0/cache/react-7-segment-display-npm-1.1.2-f7d4e7fefe-99c6a114f4.zip/node_modules/react-7-segment-display/",\
+        "packageDependencies": [\
+          ["react-7-segment-display", "virtual:ee10e5f3b3201f8063efa2a01b73998caaffddc2abbc3b84f927083546bad03a931378d6c5272841f3469d0368f8b188e481a7f5cc6c2b8c837000910f554b62#npm:1.1.2"],\
+          ["@types/react", "npm:18.3.17"],\
+          ["@types/react-dom", "virtual:ee10e5f3b3201f8063efa2a01b73998caaffddc2abbc3b84f927083546bad03a931378d6c5272841f3469d0368f8b188e481a7f5cc6c2b8c837000910f554b62#npm:18.3.5"],\
+          ["react", "npm:18.3.1"],\
+          ["react-dom", "virtual:ee10e5f3b3201f8063efa2a01b73998caaffddc2abbc3b84f927083546bad03a931378d6c5272841f3469d0368f8b188e481a7f5cc6c2b8c837000910f554b62#npm:18.3.1"],\
+          ["typescript", "patch:typescript@npm%3A5.7.2#optional!builtin<compat/typescript>::version=5.7.2&hash=8c6c40"]\
+        ],\
+        "packagePeers": [\
+          "@types/react-dom",\
+          "@types/react",\
+          "react-dom",\
+          "react"\
         ],\
         "linkType": "HARD"\
       }]\
@@ -3775,6 +3804,13 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./.yarn/cache/typescript-patch-fe43cd9db9-73409d7b91.zip/node_modules/typescript/",\
         "packageDependencies": [\
           ["typescript", "patch:typescript@npm%3A5.5.4#optional!builtin<compat/typescript>::version=5.5.4&hash=379a07"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["patch:typescript@npm%3A5.7.2#optional!builtin<compat/typescript>::version=5.7.2&hash=8c6c40", {\
+        "packageLocation": "./.yarn/cache/typescript-patch-fc62289e64-c891ccf040.zip/node_modules/typescript/",\
+        "packageDependencies": [\
+          ["typescript", "patch:typescript@npm%3A5.7.2#optional!builtin<compat/typescript>::version=5.7.2&hash=8c6c40"]\
         ],\
         "linkType": "HARD"\
       }]\

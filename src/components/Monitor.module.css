@@ -1,0 +1,19 @@
+.root {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	width: 720px;
+}
+
+.display-container {
+	border: 2px inset;
+}
+
+.display-container > :first-child {
+	padding: 0 !important;
+}
+
+.display-container > :first-child > :first-child {
+	padding: 6px !important;
+}
