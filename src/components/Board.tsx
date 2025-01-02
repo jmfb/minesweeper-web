@@ -30,7 +30,9 @@ export function Board({
 			);
 		};
 	const handleMouseButtons = (event: MouseEvent<HTMLDivElement>) => {
-		onButtonsChanged(mouseService.mapMouseButtons(event));
+		if (cursor !== null) {
+			onButtonsChanged(mouseService.mapMouseButtons(event));
+		}
 	};
 	const handleContextMenu = (event: MouseEvent<HTMLDivElement>) => {
 		event.preventDefault();
