@@ -25,6 +25,9 @@ export function getMouseGameEvent(
 	if (oldButtons === "both" && newButtons === "right") {
 		return "chord";
 	}
+	if (oldButtons === "both" && newButtons === "left") {
+		return "possible-chord";
+	}
 	if (oldButtons === "left" && newButtons === "none") {
 		return "click";
 	}

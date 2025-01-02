@@ -13,6 +13,7 @@ export function Application() {
 	const [startTime, setStartTime] = useState<Date | null>(null);
 	const [endTime, setEndTime] = useState<Date | null>(null);
 	const [now, setNow] = useState<Date>(new Date());
+	const [lastPossibleChord, setLastPossibleChord] = useState(0);
 	const [buttons, setButtons] = useState<MouseButtons>("none");
 	const [isEmpty, setIsEmpty] = useState(true);
 	const [cursor, setCursor] = useState<Cursor | null>(null);
@@ -55,7 +56,13 @@ export function Application() {
 					setStartTime(newStartTime);
 					setNow(newStartTime);
 				} else {
-					setState(gameService.doClick(state, cursor));
+					const timeSinceLastPossibleChordInMs =
+						new Date().getTime() - lastPossibleChord;
+					if (timeSinceLastPossibleChordInMs < 100) {
+						setState(gameService.doChord(state, cursor));
+					} else {
+						setState(gameService.doClick(state, cursor));
+					}
 				}
 				break;
 			case "mark":
@@ -63,6 +70,9 @@ export function Application() {
 				break;
 			case "chord":
 				setState(gameService.doChord(state, cursor));
+				break;
+			case "possible-chord":
+				setLastPossibleChord(new Date().getTime());
 				break;
 		}
 	};

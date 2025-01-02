@@ -14,7 +14,7 @@ export type BoardState = SquareState[][];
 
 export type MouseButtons = "none" | "left" | "right" | "both";
 
-export type MouseGameEvent = "click" | "mark" | "chord";
+export type MouseGameEvent = "click" | "mark" | "chord" | "possible-chord";
 
 export interface Cursor {
 	row: number;
