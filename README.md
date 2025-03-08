@@ -48,9 +48,19 @@ choco install -y terraform
 choco install -y awscli
 ```
 
+Configure your AWS CLI credentials for `deployment` IAM user.
+Retrieve ID/Key from BitWarden.
+
+```PowerShell
+& aws configure
+AWS Access Key ID [None]: ...ID...
+AWS Secret Access Key [None]: ...Key...
+Default region name [None]: us-east-1
+Default output format [None]:
+```
+
 Run the following script to deploy a new version of the website to AWS.
 
 ```PowerShell
-# TODO: Setup AWS secrets and write the following script
-. ./Release.ps1
+. ./Deploy.ps1
 ```
