@@ -2,7 +2,7 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import tsconfigPaths from "vite-tsconfig-paths";
 
-export default defineConfig(({ command }) => ({
+export default defineConfig({
 	server: {
 		host: "localhost",
 		port: 8099,
@@ -12,4 +12,4 @@ export default defineConfig(({ command }) => ({
 		outDir: "build",
 	},
 	plugins: [react(), tsconfigPaths()],
-}));
+});

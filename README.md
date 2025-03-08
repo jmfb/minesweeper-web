@@ -41,6 +41,13 @@ npm add -g prettier@^3.3.3
 
 ## Deployment
 
+Please install the following dependencies to deploy this project:
+
+```PowerShell
+choco install -y terraform
+choco install -y awscli
+```
+
 Run the following script to deploy a new version of the website to AWS.
 
 ```PowerShell
